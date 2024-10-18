@@ -9,15 +9,17 @@ size(500,500);
   
   // 3. Resize the baby image to be the same size as the sketch
   //    Use the baby.resize() command for this
-
+ baby.resize(500,500);
 
   // 4. Set the baby image to be the background of your sketch
   //    Use the background() command for this
-
+background(baby);
   
   // 5. Write the message "TESTED MY PROGRAM" at the top of the meme
   //    Use the text() command for this
-
+fill(#268B37);
+textSize(30);
+text("I TRIED PUNCHING MY SISTER'S FACE",25,60);
   
   // 6. Now make the message bigger so that it fills the width of the sketch
   //    Use the textSize() command for this and put it BEFORE you write the text!
@@ -27,7 +29,12 @@ void draw() {
 
   // 7. Write the messsage "IT WORKED FIRST TIME" at the bottom of the meme
 
-  
+ fill(#268B37);
+ 
+ textSize(42);
+ if(mousePressed){
+ text("AND IT FINALLY WORKED!",25,490); 
+ }
   // 8. Change the color of the text. Use the fill() command for this
   //    Put it BEFORE you write the text!
   
