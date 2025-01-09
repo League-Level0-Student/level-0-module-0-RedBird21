@@ -1,37 +1,50 @@
-package _03_print_and_popups._4_quiz_game;
+package _01_algorithms._3_goofy_names;
+/*
+ *    Copyright (c) The League of Amazing Programmers 2013-2017
+ *    Level 0
+ */
 
 import javax.swing.JOptionPane;
 
-public class QuizGame {
+public class GoofyNames {
 	public static void main(String[] args) {
+		String goofyName = "";
 
-		// Create a variable to hold the user's score. Set it equal to zero.
-		int score = 0;
-		// ASK A QUESTION AND CHECK THE ANSWER
-
-		// 2. Ask the user a question
-		String answer1 = JOptionPane.showInputDialog("how do you unlock Ghost Rider in Lego Marvel Super Heroes?");
-		// 3. Use an if statement to check if their answer is correct
-		if (answer1.contains("circus")) {
-			JOptionPane.showMessageDialog(null, "correct!");
-			score  +=1;
-		} else {
-			JOptionPane.showMessageDialog(null, "wrong!");
-		}
-		String answer2 = JOptionPane.showInputDialog("who defeated Thanos in Avengers Endgame?");
-		if (answer2.contains("iron man")) {
-			JOptionPane.showMessageDialog(null, "correct!");
-			score  +=1;
-		} else {
-			JOptionPane.showMessageDialog(null, "wrong!");
-		}
-	String answer3 = JOptionPane.showInputDialog("in marvel, what is venom's weakness");
-		// 4. if the user's answer was correct, add one to their score
-
-		// MAKE MORE QUESTIONS. Ask more questions by repeating the above
-		// Option: Subtract a point from their score for a wrong answer
-
-		// After all the questions have been asked, tell the user their final score
-
+		// 1. Ask the user to enter their name
+         String name = JOptionPane.showInputDialog("Please enter your name");
+		// 2. Print upper case name to the console using .toUpperCase()
+		//    Run your program to see that this works.
+           System.out.println(name.toUpperCase());
+		// 3. Loop through each character of the name (steps 4 - 7).
+		//    HINT: Use .length() to determine the number of characters in the String.
+          for(int i=0;i<name.length();i++) {
+        	  
+          
+           
+				// 4. Create a char variable to store the next character of the name
+				//    use .charAt()
+	               char cname = name.charAt(i);
+				
+				// 5. Use MODULO operator (%) to identify if it is an EVEN or ODD character.
+	               if(cname % 2 == 0) {
+	            	   
+				
+			
+			
+				// 6. Even characters should be made uppercase and odd characters made lowercase
+				//    HINT: use Character.toUpperCase() or Character.toLowerCase()
+	                 cname = Character.toUpperCase(cname);
+	                 
+			} else {
+				cname = Character.toLowerCase(cname);
+			}
+				// 7. ADD the char to the end of the goofyName String
+                goofyName += cname;
+		
+		// 8. Use pop-up to show user their Goofy name
+                
+          }
+          JOptionPane.showMessageDialog(null, goofyName);
 	}
 }
+
