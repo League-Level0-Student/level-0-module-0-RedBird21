@@ -61,7 +61,7 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 		// 5. Run your program and move your mouse over the START COLOR. A number will
 		// be printed to the console
 
-		int startColor = -7617718;
+		int startColor = -7617718; 
 		// 6. Change the value of this startColor variable to the number printed in the
 		// previous step.
 
