@@ -30,6 +30,8 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 	final int frameWidth = 500;
 	final int frameHeight = 500;
 
+	boolean scaredYet = false;
+
 	ScaryMaze() throws Exception {
 
 		// 1. Use this online tool (https://www.pixilart.com/) to make a maze image.
@@ -51,50 +53,53 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		int mouseX = e.getX();
-		int mouseY = e.getY();
-		int mouseColor = maze.getRGB(mouseX, mouseY);
+		if(scaredYet == false) {
+			int mouseX = e.getX();
+			int mouseY = e.getY();
+			int mouseColor = maze.getRGB(mouseX, mouseY);
 
-		// 4. Print the mouseColor variable (Hint: use smelly breath)
+			// 4. Print the mouseColor variable (Hint: use smelly breath)
 
-		System.out.println(mouseColor);
-		// 5. Run your program and move your mouse over the START COLOR. A number will
-		// be printed to the console
+			System.out.println(mouseColor);
+			// 5. Run your program and move your mouse over the START COLOR. A number will
+			// be printed to the console
 
-		int startColor = -7617718; 
-		// 6. Change the value of this startColor variable to the number printed in the
-		// previous step.
+			int startColor = -7617718; 
+			// 6. Change the value of this startColor variable to the number printed in the
+			// previous step.
 
-		// Leave this code here!
-		// It makes sure the game will not start until the mouse has visited the start
-		// area.
-		if (!started && mouseColor == startColor) {
-			started = true;
-		}
-
-		// 7. Make a new int variable for the background color of the maze
-		int backgroundColor = -1499549;
-
-		// 8. Run the program and move the mouse over the BACKGROUND COLOR.
-		// Use the number that is printed to the console to set the background color
-		// variable
-		int endColor = -5317;
-
-		if (started) {
-
-			// 9. If the mouse falls off the path (which means it is on the background
-			// color)
-			// call the scare method - scare();
-			if (mouseColor == backgroundColor) {
-				scare();
-			}
-			// 13. If the mouse is on the end color, pop up a message to tell them they won!
-			// (you will need to get the number of the END COLOR by moving the mouse over
-			// it)
-			if (mouseColor == endColor) {
-				JOptionPane.showMessageDialog(null, "congratulations you've won!");
+			// Leave this code here!
+			// It makes sure the game will not start until the mouse has visited the start
+			// area.
+			if (!started && mouseColor == startColor) {
+				started = true;
 			}
 
+			// 7. Make a new int variable for the background color of the maze
+			int backgroundColor = -1499549;
+
+			// 8. Run the program and move the mouse over the BACKGROUND COLOR.
+			// Use the number that is printed to the console to set the background color
+			// variable
+			int endColor = -5317;
+
+			if (started) {
+
+				// 9. If the mouse falls off the path (which means it is on the background
+				// color)
+				// call the scare method - scare();
+				if (mouseColor == backgroundColor) {
+					scaredYet = true;
+					scare();
+				}
+				// 13. If the mouse is on the end color, pop up a message to tell them they won!
+				// (you will need to get the number of the END COLOR by moving the mouse over
+				// it)
+				if (mouseColor == endColor) {
+					JOptionPane.showMessageDialog(null, "congratulations you've won!");
+				}
+
+			}
 		}
 	}
 
@@ -105,22 +110,22 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 		System.out.println("BOO!");
 		this.setPreferredSize(new Dimension(1900,1000));
 		frame.pack();
-		
-		Thread t1 = new Thread( () -> { showScaryImage("emperorPalpatine.png");}  );
-		
-		
-		
-		
-		
-	
-		 Thread t2 = new Thread( () -> { playScarySound("palpatinelaugh.wav");}  );
-			
 
-		 
-		 
-		 t1.start();
-		 t2.start();
-		
+		Thread t1 = new Thread( () -> { showScaryImage("emperorPalpatine.png");}  );
+
+
+
+
+
+
+		Thread t2 = new Thread( () -> { playScarySound("palpatinelaugh.wav");}  );
+
+
+
+
+		t1.start();
+		t2.start();
+
 		/********** SHOW A PICTURE ***************/
 
 		// 12. Find a scary image and drop it into the _04_amazing_games._1_scary_maze
